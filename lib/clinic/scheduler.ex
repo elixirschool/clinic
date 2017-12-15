@@ -18,7 +18,7 @@ defmodule Clinic.Scheduler do
   def handle_info(:check, {health_check, sites}) do
     sites
     |> health_check.ping()
-    |> Enum.map(&report/1)
+    |> Enum.each(&report/1)
 
     {:noreply, {health_check, sites}}
   end
