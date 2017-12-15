@@ -8,7 +8,7 @@ defmodule Clinic.Scheduler do
   def init(opts) do
     sites = Keyword.fetch!(opts, :sites)
     interval = Keyword.fetch!(opts, :interval)
-    health_check = Keyword.get(opts, :health_checks, HealthCheck)
+    health_check = Keyword.get(opts, :health_check, HealthCheck)
 
     Process.send_after(self(), :check, interval)
 
